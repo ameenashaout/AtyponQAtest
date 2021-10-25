@@ -57,18 +57,19 @@ public class BookTests {
         AuthorEntity author=new AuthorEntity();
         author.setFirstName("Amal");
         author.setLastName("joe");
-        authorRepository.save(author);
 
         BookEntity bookOne = new BookEntity();
         bookOne.setAuthor(author);
         bookOne.setTitle("java");
         bookOne.setYear("2021");
-        bookRepository.save(bookOne);
 
         BookEntity bookTwo = new BookEntity();
         bookTwo.setAuthor(author);
         bookTwo.setTitle("design pattern");
         bookTwo.setYear("2020");
+
+        authorRepository.save(author);
+        bookRepository.save(bookOne);
         bookRepository.save(bookTwo);
         BookEntity foundBook = bookRepository.findById(bookTwo.getId()).get();
 
